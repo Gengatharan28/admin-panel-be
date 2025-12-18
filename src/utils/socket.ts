@@ -3,10 +3,7 @@ import { Server as HttpServer } from "http";
 import { updateUserById } from "../repository/user.js";
 import { UserModel } from "../entities/User.js";
 import { validateJWTToken } from "./jwtToken.js";
-import { UserController } from "../service/user/user.controller.js";
-import { AuthToken, SortDirection } from "../common/index.model.js";
-import { response } from "express";
-import { SortColumnKey } from "../service/user/user.model.js";
+import { AuthToken } from "../common/index.model.js";
 
 let io: Server;
 let payload: AuthToken;
@@ -49,7 +46,7 @@ export const initSocket = (server: HttpServer) => {
             await updateUserIsOnline(userId, false);
 
             io.to("admins").emit("user-status", { id: userId, isOnline: false });
-        })
+        });
 
         socket.on("disconnect", () => {
             console.log("Socket disconnected:", socket.id);
