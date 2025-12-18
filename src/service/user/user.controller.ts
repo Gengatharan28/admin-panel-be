@@ -206,7 +206,8 @@ export class UserController {
                 .oneOf([
                     Model.SortColumnKey.CreatedAt,
                     Model.SortColumnKey.Email,
-                    Model.SortColumnKey.Name
+                    Model.SortColumnKey.Name,
+                    Model.SortColumnKey.IsOnline,
                 ]),
             sortDirection: yup.string()
                 .required()

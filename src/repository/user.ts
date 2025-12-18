@@ -94,6 +94,8 @@ const getOrder = (sort: ISort): Order => {
             return [['created_at', sort.direction]];
         case SortColumnKey.Name:
             return [['email', sort.direction]];
+        case SortColumnKey.IsOnline:
+            return [['is_online', sort.direction]];
         default:
             return [[literal("concat(first_name, ' ', last_name)"), sort.direction]];
     }
