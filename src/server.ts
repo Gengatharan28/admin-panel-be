@@ -16,12 +16,6 @@ process.on('unhandledRejection', (err) => {
     console.log(`Unhandled Rejection ${err}`);
 });
 
-// const res = new Date().getTimezoneOffset();
-// if (res !== 0) {
-//     console.log('Timezone is not in UTC . exiting.....');
-//     process.exit(1);
-// }
-
 initAssociations();
 await initializeDatabase();
 export const app = express();

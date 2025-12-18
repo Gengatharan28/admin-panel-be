@@ -14,9 +14,6 @@ const jwtExecutePath = [
 ];
 
 export const validateToken = async (req: Request, res: Response, next: NextFunction) => {
-    // if (req.url.startsWith("/socket.io")) {
-    //     return next();
-    // }
     if (jwtExecutePath.includes(req.path))
         return next();
 
